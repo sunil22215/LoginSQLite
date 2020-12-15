@@ -13,13 +13,13 @@
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
         android:layout_gravity="center"
-        android:src="@drawable/twi" />
+        android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="TWITTER"
+        android:text="@string/app_name"
         android:textSize="30sp"
         android:textStyle="bold"/>
 
