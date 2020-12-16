@@ -46,10 +46,23 @@ public class RegisterActivity extends AppCompatActivity {
                 String city = editTextCityName.getText().toString();
                 String password = editTextPassword.getText().toString();
 
-                if (email.equals("") || monumber.equals("") || email.equals("") || city.equals("") || password.equals(""))
-                    Toast.makeText(getApplicationContext(), "Please Enter all the fields", Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(getApplicationContext(), "registered successfully", Toast.LENGTH_SHORT).show();
+                if (name.equals("")) {
+                    Toast.makeText(getApplicationContext(), "Please Enter name", Toast.LENGTH_SHORT).show();
+                    if (monumber.equals("")) {
+                        Toast.makeText(getApplicationContext(), "please Enter monumber", Toast.LENGTH_SHORT).show();
+                        if (email.equals("")) {
+                            Toast.makeText(RegisterActivity.this, "please enter email", Toast.LENGTH_SHORT).show();
+                            if (city.equals("")) {
+                                Toast.makeText(RegisterActivity.this, "please enter city", Toast.LENGTH_SHORT).show();
+                                if (password.equals("")) {
+                                    Toast.makeText(RegisterActivity.this, "please enter password", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

@@ -1,42 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageViewlogo"
+        android:layout_width="159dp"
+        android:layout_height="134dp"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fl" />
 
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/purple_200"
+        android:layout_marginTop="250dp"
         android:hint="Enter Email" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/purple_200"
         android:layout_below="@id/editTextEmail"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:hint="Enter Password" />
 
     <Button
         android:id="@+id/buttonLogin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextPassword"
-        android:layout_marginTop="40dp"
+        android:layout_above="@id/buttonRegister"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
         android:text="LOGIN"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        app:cornerRadius="6dp" />
 
     <Button
         android:id="@+id/buttonRegister"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttonLogin"
-        android:layout_marginTop="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
         android:text="SIGNUP"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        app:cornerRadius="6dp" />
 
 
 </RelativeLayout>

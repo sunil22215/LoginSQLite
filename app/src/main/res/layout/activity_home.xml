@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background2"
     tools:context=".HomeActivity">
 
     <TextView
@@ -11,7 +12,7 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:text="WELCOME TO LOGINSQLITE HOMEPAGE"
-        android:textColor="@color/purple_500"
+        android:textColor="@color/purple_200"
         android:textSize="40sp" />
 
 </RelativeLayout>

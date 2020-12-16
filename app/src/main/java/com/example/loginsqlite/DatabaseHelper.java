@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Login.db";
-    public static final String TABLE_NAME = "user_teble";
+    public static final String TABLE_NAME = "user_table";
     public static final String COL_USER_ID = "ID";
     public static final String COL_USER_NAME = " NAME";
     public static final String COL_USER_MONUMBER = "MOBILE NUMBER";
@@ -50,7 +50,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COL_USER_CITY, city);
         values.put(COL_USER_PASSWORD, password);
 
-        long result = db.insert(TABLE_NAME, null, values);
+        long result = db.insert("user_teble",null, values);
 
         if (result == -1) {
             return false;
