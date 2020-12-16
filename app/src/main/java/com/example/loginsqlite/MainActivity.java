@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
                 if (email.equals("") || password.equals(""))
                     Toast.makeText(MainActivity.this, "Enter All the field", Toast.LENGTH_SHORT).show();
                 else {
-                    // if (email.equals(email) || password.equals(password)){
                     boolean checkemailpass = db.checkuserpass(email, password);
                     if (checkemailpass == true) {
                         Toast.makeText(MainActivity.this, "login Successfully", Toast.LENGTH_SHORT).show();
