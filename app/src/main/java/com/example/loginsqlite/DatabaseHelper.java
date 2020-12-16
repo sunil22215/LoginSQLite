@@ -2,6 +2,7 @@ package com.example.loginsqlite;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -18,8 +19,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_USER_CITY = "CITY";
     public static final String COL_USER_PASSWORD = "PASSWORD";
 
-    private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_NAME +"(" +
-            "ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,NUMBER INTEGER,EMAIL TEXT,CITY TEXT,PASSWORD TEXT)";
+    private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_NAME + "(" +
+            "ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,MONUMBER INTEGER,EMAIL TEXT,CITY TEXT,PASSWORD TEXT)";
 
     private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
 
@@ -40,25 +41,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean addUser(String name,String monumber,String email,String city,String password){
+    public boolean addUser(String name, String monumber, String email, String city, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COL_USER_NAME,name);
-        values.put(COL_USER_MONUMBER,monumber);
-        values.put(COL_USER_EMAIL,email);
-        values.put(COL_USER_CITY,city);
-        values.put(COL_USER_PASSWORD,password);
+        values.put(COL_USER_NAME, name);
+        values.put(COL_USER_MONUMBER, monumber);
+        values.put(COL_USER_EMAIL, email);
+        values.put(COL_USER_CITY, city);
+        values.put(COL_USER_PASSWORD, password);
 
-        long result= db.insert(TABLE_NAME,null,values);
+        long result = db.insert(TABLE_NAME, null, values);
 
-        if(result==-1){
+        if (result == -1) {
             return false;
-        }
-        else{
+        } else {
             return true;
         }
 
 
+    }
+
+    public boolean checkuser(String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from TABLE_NAME where email = ?", new String[]{email});
+        if (cursor.getCount() > 0)
+            return true;
+        else
+            return false;
+    }
+
+    public boolean checkuserpass(String email, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from TABLE_NAME where email = ? & password = ?", new String[]{email, password});
+        if (cursor.getCount() > 0)
+            return true;
+        else
+            return false;
     }
 
 

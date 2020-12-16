@@ -1,12 +1,12 @@
 package com.example.loginsqlite;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterActivity extends AppCompatActivity {
     DatabaseHelper mydb;
@@ -40,16 +40,16 @@ public class RegisterActivity extends AppCompatActivity {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isInserted = mydb.addUser(editTextName.getText().toString(),
-                        editTextMoNumber.getText().toString(),
-                        editTextEmail.getText().toString(),
-                editTextCityName.getText().toString(),
-                       editTextPassword.getText().toString());
+                String name = editTextName.getText().toString();
+                String monumber = editTextMoNumber.getText().toString();
+                String email = editTextEmail.getText().toString();
+                String city = editTextCityName.getText().toString();
+                String password = editTextPassword.getText().toString();
 
-                if (isInserted = true)
-                    Toast.makeText(getApplicationContext(), "Data Inserted", Toast.LENGTH_SHORT).show();
+                if (email.equals("") || monumber.equals("") || email.equals("") || city.equals("") || password.equals(""))
+                    Toast.makeText(getApplicationContext(), "Please Enter all the fields", Toast.LENGTH_SHORT).show();
                 else
-                    Toast.makeText(getApplicationContext(), "Data Not Inserted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "registered successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
